@@ -1,0 +1,19 @@
+{
+    "description": "Footnotes CKeditor5 plugin for Neos CMS",
+    "type": "neos-package",
+    "name": "psmb/footnote",
+    "require": {
+        "neos/neos": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Psmb\\Footnote\\": "Classes/"
+        }
+    },
+    "license": "MIT",
+    "extra": {
+        "neos": {
+            "package-key": "Psmb.Footnote"
+        }
+    }
+}

@@ -908,6 +908,7 @@ var FootnoteTextField = (_dec3 = (0, _neosUiDecorators.neos)(function (globalReg
                 { className: _style2.default.flyout },
                 _react2.default.createElement(_reactUiComponents.TextArea, {
                     value: this.props.footnoteValue,
+                    autoFocus: true,
                     placeholder: this.props.i18nRegistry.translate('Psmb.Footnote:Main:placeholder', 'Enter footnote text'),
                     onChange: function onChange(value) {
                         (0, _neosUiCkeditor5Bindings.executeCommand)('footnote', value, false);

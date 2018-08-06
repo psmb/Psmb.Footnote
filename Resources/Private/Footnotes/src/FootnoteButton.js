@@ -91,6 +91,7 @@ class FootnoteTextField extends PureComponent {
             <div className={style.flyout}>
                 <TextArea
                     value={this.props.footnoteValue}
+                    autoFocus
                     placeholder={this.props.i18nRegistry.translate('Psmb.Footnote:Main:placeholder', 'Enter footnote text')}
                     onChange={value => {
                         executeCommand('footnote', value, false);

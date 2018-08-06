@@ -1,6 +1,9 @@
 prototype(Psmb.Footnote:PregReplaceCallback) {
     @class = 'Psmb\\Footnote\\Fusion\\PregReplaceCallbackImplementation'
 }
+prototype(Psmb.Footnote:PregMatchAll) {
+    @class = 'Psmb\\Footnote\\Fusion\\PregMatchAllImplementation'
+}
 
 # Gathers footnotes from text
 prototype(Psmb.Footnote:FootnoteProcessor) < prototype(Neos.Fusion:Array) {
@@ -14,9 +17,12 @@ prototype(Psmb.Footnote:FootnoteProcessor) < prototype(Neos.Fusion:Array) {
         }
     }
     footnotes = Neos.Fusion:Collection {
-        @process.wrap = ${'<ol>' + value + '</ol>'}
-        collection = ${String.pregMatch(value, '/<span data-footnote="(.*?)">(.*?)<\/span>/')}
+        @process.wrap = ${value && '<ol>' + value + '</ol>'}
+        collection = Psmb.Footnote:PregMatchAll {
+            pattern = ${'/<span data-footnote="(.*?)">(.*?)<\/span>/'}
+            subject = ${value}
+        }
         itemName = 'item'
-        itemRenderer = ${'<li id="footnote_' + iterator.cycle + '">' + item + '</li>'}
+        itemRenderer = ${'<li id="footnote_' + iterator.cycle + '">' + item[1] + '</li>'}
     }
 }

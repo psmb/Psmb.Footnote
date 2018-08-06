@@ -24,3 +24,13 @@ prototype(Neos.Neos:PrimaryContent) {
   @process.footnotes = Psmb.Footnote:FootnoteProcessor
 }
 ```
+
+5. Optionally add some styling to footnotes in backend, e.g.:
+
+```
+.neos-backend span[data-footnote]:after {
+  content: '*';
+  color: orange;
+  border-bottom: orange solid 1px;
+}
+```

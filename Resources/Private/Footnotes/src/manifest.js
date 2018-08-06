@@ -16,7 +16,7 @@ manifest('Psmb.Footnote:Footnote', {}, globalRegistry => {
     richtextToolbar.set('footnote', {
         component: FootnoteButton,
         isVisible: $get('formatting.footnote')
-    });
+    }, 'before strong');
 
     const config = globalRegistry.get('ckEditor5').get('config');
     config.set('footnote', addPlugin(FootnotePlugin));

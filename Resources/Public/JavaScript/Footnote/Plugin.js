@@ -148,7 +148,7 @@ var addPlugin = function addPlugin(Plugin, isEnabled) {
     richtextToolbar.set('footnote', {
         component: _FootnoteButton2.default,
         isVisible: (0, _plowJs.$get)('formatting.footnote')
-    });
+    }, 'before strong');
 
     var config = globalRegistry.get('ckEditor5').get('config');
     config.set('footnote', addPlugin(_footnotePlugin2.default));

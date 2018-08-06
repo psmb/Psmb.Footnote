@@ -1,5 +1,7 @@
 This package provides a footnote plugin for CKeditor5 integraion in Neos CMS.
 
+![footnotes](https://user-images.githubusercontent.com/837032/43721125-a3566a00-999a-11e8-92af-d049c889951d.gif)
+
 ## Installation
 
 1. Switch to using CKeditor 5

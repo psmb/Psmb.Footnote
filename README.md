@@ -16,3 +16,11 @@ This package provides a footnote plugin for CKeditor5 integraion in Neos CMS.
             formatting:
               footnote: true
 ```
+
+4. Add Fusion processor over the needed content collection, from which the footnotes should be gathered and rendered (or write your own Fusion or JS solution), e.g.:
+
+```
+prototype(Neos.Neos:PrimaryContent) {
+  @process.footnotes = Psmb.Footnote:FootnoteProcessor
+}
+```

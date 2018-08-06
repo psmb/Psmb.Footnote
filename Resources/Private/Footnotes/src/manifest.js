@@ -1,7 +1,7 @@
 import manifest from '@neos-project/neos-ui-extensibility';
 import FootnotePlugin from './footnotePlugin';
 import FootnoteButton from './FootnoteButton';
-import {$add} from 'plow-js'
+import {$add, $get} from 'plow-js'
 
 const addPlugin = (Plugin, isEnabled) => (ckEditorConfiguration, options) => {
     if (!isEnabled || isEnabled(options.editorOptions, options)) {
@@ -16,7 +16,7 @@ manifest('Psmb.Footnote:Footnote', {}, globalRegistry => {
     richtextToolbar.set('footnote', {
         component: FootnoteButton,
         isVisible: $get('formatting.footnote')
-    }, 'before strong');
+    });
 
     const config = globalRegistry.get('ckEditor5').get('config');
     config.set('footnote', addPlugin(FootnotePlugin));

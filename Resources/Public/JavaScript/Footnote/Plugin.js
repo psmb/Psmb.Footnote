@@ -225,7 +225,7 @@ function createConsumerApi(manifests, exposureMap) {
 /* 6 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"@neos-project/neos-ui-extensibility","version":"1.3.1","description":"Extensibility mechanisms for the Neos CMS UI","main":"./src/index.js","scripts":{"prebuild":"check-dependencies && yarn clean","test":"yarn jest -- -w 2 --coverage","test:watch":"yarn jest -- --watch","build":"exit 0","build:watch":"exit 0","clean":"rimraf ./lib ./dist","lint":"eslint src","jest":"NODE_ENV=test jest"},"devDependencies":{"@neos-project/babel-preset-neos-ui":"1.3.1","@neos-project/jest-preset-neos-ui":"1.3.1"},"dependencies":{"@neos-project/build-essentials":"1.3.1","@neos-project/positional-array-sorter":"1.3.1","babel-core":"^6.13.2","babel-eslint":"^7.1.1","babel-loader":"^7.1.2","babel-plugin-transform-decorators-legacy":"^1.3.4","babel-plugin-transform-object-rest-spread":"^6.20.1","babel-plugin-webpack-alias":"^2.1.1","babel-preset-es2015":"^6.13.2","babel-preset-react":"^6.3.13","babel-preset-stage-0":"^6.3.13","chalk":"^1.1.3","css-loader":"^0.28.4","file-loader":"^1.1.5","json-loader":"^0.5.4","postcss-loader":"^2.0.10","react-dev-utils":"^0.5.0","style-loader":"^0.21.0"},"bin":{"neos-react-scripts":"./bin/neos-react-scripts.js"},"jest":{"preset":"@neos-project/jest-preset-neos-ui"}}
+module.exports = {"name":"@neos-project/neos-ui-extensibility","version":"1.4.1","description":"Extensibility mechanisms for the Neos CMS UI","main":"./src/index.js","scripts":{"prebuild":"check-dependencies && yarn clean","test":"yarn jest -- -w 2 --coverage","test:watch":"yarn jest -- --watch","build":"exit 0","build:watch":"exit 0","clean":"rimraf ./lib ./dist","lint":"eslint src","jest":"NODE_ENV=test jest"},"devDependencies":{"@neos-project/babel-preset-neos-ui":"1.4.1","@neos-project/jest-preset-neos-ui":"1.4.1"},"dependencies":{"@neos-project/build-essentials":"1.4.1","@neos-project/positional-array-sorter":"1.4.1","babel-core":"^6.13.2","babel-eslint":"^7.1.1","babel-loader":"^7.1.2","babel-plugin-transform-decorators-legacy":"^1.3.4","babel-plugin-transform-object-rest-spread":"^6.20.1","babel-plugin-webpack-alias":"^2.1.1","babel-preset-es2015":"^6.13.2","babel-preset-react":"^6.3.13","babel-preset-stage-0":"^6.3.13","chalk":"^1.1.3","css-loader":"^0.28.4","file-loader":"^1.1.5","json-loader":"^0.5.4","postcss-loader":"^2.0.10","react-dev-utils":"^0.5.0","style-loader":"^0.21.0"},"bin":{"neos-react-scripts":"./bin/neos-react-scripts.js"},"jest":{"preset":"@neos-project/jest-preset-neos-ui"}}
 
 /***/ }),
 /* 7 */
@@ -241,7 +241,7 @@ Object.defineProperty(exports, "__esModule", {
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 exports.default = function (manifests) {
-    return function manifest(identifier, options, bootstrap) {
+    return function (identifier, options, bootstrap) {
         manifests.push(_defineProperty({}, identifier, {
             options: options,
             bootstrap: bootstrap
@@ -276,10 +276,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// ckeditor -12.0.0
+//import {Command, Plugin, UpcastConverters, DowncastConverters, ModelRange as Range, ModelPosition as Position}
 
-var downcastAttributeToElement = _ckeditor5Exports.DowncastConverters.downcastAttributeToElement;
-var upcastElementToAttribute = _ckeditor5Exports.UpcastConverters.upcastElementToAttribute;
 
+// const {downcastAttributeToElement} = DowncastConverters;
+// const {upcastElementToAttribute} = UpcastConverters;
 
 var FOOTNOTE = 'footnote';
 
@@ -297,7 +299,8 @@ function _findBound(position, value, lookBack) {
         node = lookBack ? node.previousSibling : node.nextSibling;
     }
 
-    return lastNode ? _ckeditor5Exports.ModelPosition.createAt(lastNode, lookBack ? 'before' : 'after') : position;
+    //return lastNode ? Position.createAt(lastNode, lookBack ? 'before' : 'after') : position;
+    return lastNode ? _ckeditor5Exports.ModelPosition._createAt(lastNode, lookBack ? 'before' : 'after') : position;
 }
 
 var FootnoteCommand = function (_Command) {
@@ -430,13 +433,15 @@ var Footnote = function (_Plugin) {
         value: function init() {
             var editor = this.editor;
             editor.model.schema.extend('$text', { allowAttributes: FOOTNOTE });
-            editor.conversion.for('downcast').add(downcastAttributeToElement({
+            //Changed editor.conversion.downcast/upcast-things
+            editor.conversion.for('downcast').attributeToElement({
                 model: FOOTNOTE,
                 view: function view(footnote, writer) {
                     return writer.createAttributeElement('span', { 'data-footnote': footnote });
                 }
-            }));
-            editor.conversion.for('upcast').add(upcastElementToAttribute({
+            });
+
+            editor.conversion.for('upcast').elementToAttribute({
                 view: {
                     name: 'span',
                     attributes: {
@@ -449,7 +454,7 @@ var Footnote = function (_Plugin) {
                         return viewElement.getAttribute('data-footnote');
                     }
                 }
-            }));
+            });
             editor.commands.add(FOOTNOTE, new FootnoteCommand(this.editor, FOOTNOTE));
         }
     }], [{
@@ -1054,8 +1059,8 @@ var update = __webpack_require__(27)(content, options);
 if(content.locals) module.exports = content.locals;
 
 if(false) {
-	module.hot.accept("!!../node_modules/css-loader/index.js??ref--6-2!../node_modules/postcss-loader/lib/index.js??ref--6-3!./style.css", function() {
-		var newContent = require("!!../node_modules/css-loader/index.js??ref--6-2!../node_modules/postcss-loader/lib/index.js??ref--6-3!./style.css");
+	module.hot.accept("!!../node_modules/css-loader/index.js??ref--7-2!../node_modules/postcss-loader/lib/index.js??ref--7-3!./style.css", function() {
+		var newContent = require("!!../node_modules/css-loader/index.js??ref--7-2!../node_modules/postcss-loader/lib/index.js??ref--7-3!./style.css");
 
 		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 

@@ -17,7 +17,7 @@ function _findBound(position, value, lookBack) {
         node = lookBack ? node.previousSibling : node.nextSibling;
     }
 
-    //old code created an error, used a protected function, okay?
+    //old Position.createAt created an error, used a protected function, okay?
     return lastNode ? Position._createAt(lastNode, lookBack ? 'before' : 'after') : position;
 }
 
@@ -90,7 +90,6 @@ export default class Footnote extends Plugin {
     init() {
         const editor = this.editor;
         editor.model.schema.extend('$text', {allowAttributes: FOOTNOTE});
-        //Changed editor.conversion.downcast/upcast-things
         editor.conversion.for('downcast').attributeToElement({
             model: FOOTNOTE,
             view: (footnote, writer) => writer.createAttributeElement('span', {'data-footnote': footnote})

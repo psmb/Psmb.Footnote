@@ -1,9 +1,5 @@
 import toMap from '@ckeditor/ckeditor5-utils/src/tomap';
-// ckeditor -12.0.0
-//import {Command, Plugin, UpcastConverters, DowncastConverters, ModelRange as Range, ModelPosition as Position}
 import {Command, Plugin, ModelRange as Range, ModelPosition as Position} from 'ckeditor5-exports';
-// const {downcastAttributeToElement} = DowncastConverters;
-// const {upcastElementToAttribute} = UpcastConverters;
 
 const FOOTNOTE = 'footnote';
 
@@ -21,7 +17,7 @@ function _findBound(position, value, lookBack) {
         node = lookBack ? node.previousSibling : node.nextSibling;
     }
 
-    //return lastNode ? Position.createAt(lastNode, lookBack ? 'before' : 'after') : position;
+    //old code created an error, used a protected function, okay?
     return lastNode ? Position._createAt(lastNode, lookBack ? 'before' : 'after') : position;
 }
 

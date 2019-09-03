@@ -276,12 +276,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// ckeditor -12.0.0
-//import {Command, Plugin, UpcastConverters, DowncastConverters, ModelRange as Range, ModelPosition as Position}
-
-
-// const {downcastAttributeToElement} = DowncastConverters;
-// const {upcastElementToAttribute} = UpcastConverters;
 
 var FOOTNOTE = 'footnote';
 
@@ -299,7 +293,7 @@ function _findBound(position, value, lookBack) {
         node = lookBack ? node.previousSibling : node.nextSibling;
     }
 
-    //return lastNode ? Position.createAt(lastNode, lookBack ? 'before' : 'after') : position;
+    //old Position.createAt created an error, used a protected function, okay?
     return lastNode ? _ckeditor5Exports.ModelPosition._createAt(lastNode, lookBack ? 'before' : 'after') : position;
 }
 
@@ -433,7 +427,6 @@ var Footnote = function (_Plugin) {
         value: function init() {
             var editor = this.editor;
             editor.model.schema.extend('$text', { allowAttributes: FOOTNOTE });
-            //Changed editor.conversion.downcast/upcast-things
             editor.conversion.for('downcast').attributeToElement({
                 model: FOOTNOTE,
                 view: function view(footnote, writer) {

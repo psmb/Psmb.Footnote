@@ -1,7 +1,5 @@
 import toMap from '@ckeditor/ckeditor5-utils/src/tomap';
-import {Command, Plugin, UpcastConverters, DowncastConverters, ModelRange as Range, ModelPosition as Position} from 'ckeditor5-exports';
-const {downcastAttributeToElement} = DowncastConverters;
-const {upcastElementToAttribute} = UpcastConverters;
+import {Command, Plugin, ModelRange as Range, ModelPosition as Position} from 'ckeditor5-exports';
 
 const FOOTNOTE = 'footnote';
 
@@ -19,7 +17,8 @@ function _findBound(position, value, lookBack) {
         node = lookBack ? node.previousSibling : node.nextSibling;
     }
 
-    return lastNode ? Position.createAt(lastNode, lookBack ? 'before' : 'after') : position;
+    //old Position.createAt created an error, used a protected function, okay?
+    return lastNode ? Position._createAt(lastNode, lookBack ? 'before' : 'after') : position;
 }
 
 class FootnoteCommand extends Command {
@@ -91,12 +90,12 @@ export default class Footnote extends Plugin {
     init() {
         const editor = this.editor;
         editor.model.schema.extend('$text', {allowAttributes: FOOTNOTE});
-        editor.conversion.for('downcast').add(downcastAttributeToElement({
+        editor.conversion.for('downcast').attributeToElement({
             model: FOOTNOTE,
             view: (footnote, writer) => writer.createAttributeElement('span', {'data-footnote': footnote})
-        }));
-        editor.conversion.for('upcast')
-            .add(upcastElementToAttribute({
+        });
+
+        editor.conversion.for('upcast').elementToAttribute({
                 view: {
                     name: 'span',
                     attributes: {
@@ -107,7 +106,7 @@ export default class Footnote extends Plugin {
                     key: FOOTNOTE,
                     value: viewElement => viewElement.getAttribute('data-footnote')
                 }
-            }));
+            });
         editor.commands.add(FOOTNOTE, new FootnoteCommand(this.editor, FOOTNOTE));
     }
 }

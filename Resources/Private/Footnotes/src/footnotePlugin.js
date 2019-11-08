@@ -66,7 +66,7 @@ class FootnoteCommand extends Command {
                     attributes.set(this.attributeKey, value);
                     const node = writer.createText(value, attributes);
                     writer.insert(node, position);
-                    writer.setSelection(Range.createOn(node));
+                    writer.setSelection(Range._createOn(node));
                 }
             } else {
                 const ranges = model.schema.getValidRanges(selection.getRanges(), this.attributeKey);

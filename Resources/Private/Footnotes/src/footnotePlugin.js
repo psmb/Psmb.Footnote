@@ -17,7 +17,6 @@ function _findBound(position, value, lookBack) {
         node = lookBack ? node.previousSibling : node.nextSibling;
     }
 
-    //old Position.createAt created an error, used a protected function, okay?
     return lastNode ? Position._createAt(lastNode, lookBack ? 'before' : 'after') : position;
 }
 

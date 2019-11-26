@@ -293,7 +293,6 @@ function _findBound(position, value, lookBack) {
         node = lookBack ? node.previousSibling : node.nextSibling;
     }
 
-    //old Position.createAt created an error, used a protected function, okay?
     return lastNode ? _ckeditor5Exports.ModelPosition._createAt(lastNode, lookBack ? 'before' : 'after') : position;
 }
 
@@ -372,7 +371,7 @@ var FootnoteCommand = function (_Command) {
                         attributes.set(_this2.attributeKey, value);
                         var node = writer.createText(value, attributes);
                         writer.insert(node, position);
-                        writer.setSelection(_ckeditor5Exports.ModelRange.createOn(node));
+                        writer.setSelection(_ckeditor5Exports.ModelRange._createOn(node));
                     }
                 } else {
                     var ranges = model.schema.getValidRanges(selection.getRanges(), _this2.attributeKey);

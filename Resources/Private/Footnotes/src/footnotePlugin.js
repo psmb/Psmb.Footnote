@@ -17,7 +17,6 @@ function _findBound(position, value, lookBack) {
         node = lookBack ? node.previousSibling : node.nextSibling;
     }
 
-    //old Position.createAt created an error, used a protected function, okay?
     return lastNode ? Position._createAt(lastNode, lookBack ? 'before' : 'after') : position;
 }
 
@@ -66,7 +65,7 @@ class FootnoteCommand extends Command {
                     attributes.set(this.attributeKey, value);
                     const node = writer.createText(value, attributes);
                     writer.insert(node, position);
-                    writer.setSelection(Range.createOn(node));
+                    writer.setSelection(Range._createOn(node));
                 }
             } else {
                 const ranges = model.schema.getValidRanges(selection.getRanges(), this.attributeKey);
@@ -96,17 +95,17 @@ export default class Footnote extends Plugin {
         });
 
         editor.conversion.for('upcast').elementToAttribute({
-                view: {
-                    name: 'span',
-                    attributes: {
-                        'data-footnote': true
-                    }
-                },
-                model: {
-                    key: FOOTNOTE,
-                    value: viewElement => viewElement.getAttribute('data-footnote')
+            view: {
+                name: 'span',
+                attributes: {
+                    'data-footnote': true
                 }
-            });
+            },
+            model: {
+                key: FOOTNOTE,
+                value: viewElement => viewElement.getAttribute('data-footnote')
+            }
+        });
         editor.commands.add(FOOTNOTE, new FootnoteCommand(this.editor, FOOTNOTE));
     }
 }

@@ -8,3 +8,8 @@ Neos:
     fusion:
       autoInclude:
         Psmb.Footnote: true
+    userInterface:
+      translation:
+        autoInclude:
+          Psmb.Footnote:
+            - 'Main'

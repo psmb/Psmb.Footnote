@@ -36,3 +36,13 @@ prototype(Neos.Neos:PrimaryContent) {
   border-bottom: orange solid 1px;
 }
 ```
+
+6. Optionnally it is possible to disable the detection of web uri in order to not make them clickable. And disabling line break substition too.
+
+
+```
+Psmb:
+  Footnote:
+    autoLinking: true
+    nl2br: true
+```

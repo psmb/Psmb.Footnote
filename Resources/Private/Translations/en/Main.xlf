@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="Psmb.Footnote" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="placeholder" xml:space="preserve">
+                <source>Enter footnote text</source>
+            </trans-unit>
+            <trans-unit id="insertFootnote" xml:space="preserve">
+                <source>Insert footnote</source>
+            </trans-unit>
+            <trans-unit id="removeFootnote" xml:space="preserve">
+                <source>Remove footnote</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

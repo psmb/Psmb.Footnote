@@ -3,7 +3,7 @@
     "type": "neos-package",
     "name": "psmb/footnote",
     "require": {
-        "neos/neos": "*"
+        "neos/neos-ui": "^8.3"
     },
     "autoload": {
         "psr-4": {

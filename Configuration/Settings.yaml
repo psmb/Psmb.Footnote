@@ -5,6 +5,9 @@ Neos:
         javascript:
           'Psmb.Footnote:Footnote':
             resource: resource://Psmb.Footnote/Public/JavaScript/Footnote/Plugin.js
+        stylesheets:
+          'Psmb.Footnote:Footnote':
+            resource: resource://Psmb.Footnote/Public/JavaScript/Footnote/Plugin.css
     fusion:
       autoInclude:
         Psmb.Footnote: true

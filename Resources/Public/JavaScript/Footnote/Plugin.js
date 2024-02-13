@@ -36,12 +36,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -59,1603 +79,358 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
+/******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ "./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/_getPrototype.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/_getPrototype.js ***!
+  \********************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = readFromConsumerApi;
-function readFromConsumerApi(key) {
-    return function () {
-        if (window['@Neos:HostPluginAPI'] && window['@Neos:HostPluginAPI']['@' + key]) {
-            var _window$NeosHostPlu;
-
-            return (_window$NeosHostPlu = window['@Neos:HostPluginAPI'])['@' + key].apply(_window$NeosHostPlu, arguments);
-        }
-
-        throw new Error('You are trying to read from a consumer api that hasn\'t been initialized yet!');
-    };
-}
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n/* Built-in method references for those with the same name as other `lodash` methods. */\nvar nativeGetPrototype = Object.getPrototypeOf;\n\n/**\n * Gets the `[[Prototype]]` of `value`.\n *\n * @private\n * @param {*} value The value to query.\n * @returns {null|Object} Returns the `[[Prototype]]`.\n */\nfunction getPrototype(value) {\n  return nativeGetPrototype(Object(value));\n}\n\nexports.default = getPrototype;\n\n//# sourceURL=webpack:///./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/_getPrototype.js?");
 
 /***/ }),
-/* 1 */
+
+/***/ "./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/_isHostObject.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/_isHostObject.js ***!
+  \********************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('vendor')().plow;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n/**\n * Checks if `value` is a host object in IE < 9.\n *\n * @private\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a host object, else `false`.\n */\nfunction isHostObject(value) {\n  // Many host objects are `Object` objects that can coerce to strings\n  // despite having improperly defined `toString` methods.\n  var result = false;\n  if (value != null && typeof value.toString != 'function') {\n    try {\n      result = !!(value + '');\n    } catch (e) {}\n  }\n  return result;\n}\n\nexports.default = isHostObject;\n\n//# sourceURL=webpack:///./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/_isHostObject.js?");
 
 /***/ }),
-/* 2 */
+
+/***/ "./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/isObjectLike.js":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/isObjectLike.js ***!
+  \*******************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-__webpack_require__(3);
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _typeof = typeof Symbol === \"function\" && typeof Symbol.iterator === \"symbol\" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === \"function\" && obj.constructor === Symbol && obj !== Symbol.prototype ? \"symbol\" : typeof obj; };\n\n/**\n * Checks if `value` is object-like. A value is object-like if it's not `null`\n * and has a `typeof` result of \"object\".\n *\n * @static\n * @memberOf _\n * @since 4.0.0\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is object-like, else `false`.\n * @example\n *\n * _.isObjectLike({});\n * // => true\n *\n * _.isObjectLike([1, 2, 3]);\n * // => true\n *\n * _.isObjectLike(_.noop);\n * // => false\n *\n * _.isObjectLike(null);\n * // => false\n */\nfunction isObjectLike(value) {\n  return !!value && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';\n}\n\nexports.default = isObjectLike;\n\n//# sourceURL=webpack:///./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/isObjectLike.js?");
 
 /***/ }),
-/* 3 */
+
+/***/ "./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/isPlainObject.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/isPlainObject.js ***!
+  \********************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _neosUiExtensibility = __webpack_require__(4);
-
-var _neosUiExtensibility2 = _interopRequireDefault(_neosUiExtensibility);
-
-var _footnotePlugin = __webpack_require__(8);
-
-var _footnotePlugin2 = _interopRequireDefault(_footnotePlugin);
-
-var _FootnoteButton = __webpack_require__(16);
-
-var _FootnoteButton2 = _interopRequireDefault(_FootnoteButton);
-
-var _plowJs = __webpack_require__(1);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var addPlugin = function addPlugin(Plugin, isEnabled) {
-    return function (ckEditorConfiguration, options) {
-        if (!isEnabled || isEnabled(options.editorOptions, options)) {
-            ckEditorConfiguration.plugins = ckEditorConfiguration.plugins || [];
-            return (0, _plowJs.$add)('plugins', Plugin, ckEditorConfiguration);
-        }
-        return ckEditorConfiguration;
-    };
-};
-
-(0, _neosUiExtensibility2.default)('Psmb.Footnote:Footnote', {}, function (globalRegistry) {
-    var richtextToolbar = globalRegistry.get('ckEditor5').get('richtextToolbar');
-    richtextToolbar.set('footnote', {
-        component: _FootnoteButton2.default,
-        isVisible: (0, _plowJs.$get)('formatting.footnote')
-    }, 'before strong');
-
-    var config = globalRegistry.get('ckEditor5').get('config');
-    config.set('footnote', addPlugin(_footnotePlugin2.default));
-});
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _getPrototype = __webpack_require__(/*! ./_getPrototype */ \"./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/_getPrototype.js\");\n\nvar _getPrototype2 = _interopRequireDefault(_getPrototype);\n\nvar _isHostObject = __webpack_require__(/*! ./_isHostObject */ \"./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/_isHostObject.js\");\n\nvar _isHostObject2 = _interopRequireDefault(_isHostObject);\n\nvar _isObjectLike = __webpack_require__(/*! ./isObjectLike */ \"./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/isObjectLike.js\");\n\nvar _isObjectLike2 = _interopRequireDefault(_isObjectLike);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n/** `Object#toString` result references. */\nvar objectTag = '[object Object]';\n\n/** Used for built-in method references. */\nvar objectProto = Object.prototype;\n\n/** Used to resolve the decompiled source of functions. */\nvar funcToString = Function.prototype.toString;\n\n/** Used to check objects for own properties. */\nvar hasOwnProperty = objectProto.hasOwnProperty;\n\n/** Used to infer the `Object` constructor. */\nvar objectCtorString = funcToString.call(Object);\n\n/**\n * Used to resolve the\n * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)\n * of values.\n */\nvar objectToString = objectProto.toString;\n\n/**\n * Checks if `value` is a plain object, that is, an object created by the\n * `Object` constructor or one with a `[[Prototype]]` of `null`.\n *\n * @static\n * @memberOf _\n * @since 0.8.0\n * @category Lang\n * @param {*} value The value to check.\n * @returns {boolean} Returns `true` if `value` is a plain object,\n *  else `false`.\n * @example\n *\n * function Foo() {\n *   this.a = 1;\n * }\n *\n * _.isPlainObject(new Foo);\n * // => false\n *\n * _.isPlainObject([1, 2, 3]);\n * // => false\n *\n * _.isPlainObject({ 'x': 0, 'y': 0 });\n * // => true\n *\n * _.isPlainObject(Object.create(null));\n * // => true\n */\nfunction isPlainObject(value) {\n  if (!(0, _isObjectLike2.default)(value) || objectToString.call(value) != objectTag || (0, _isHostObject2.default)(value)) {\n    return false;\n  }\n  var proto = (0, _getPrototype2.default)(value);\n  if (proto === null) {\n    return true;\n  }\n  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;\n  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;\n}\n\nexports.default = isPlainObject;\n\n//# sourceURL=webpack:///./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/isPlainObject.js?");
 
 /***/ }),
-/* 4 */
+
+/***/ "./node_modules/@ckeditor/ckeditor5-utils/src/objecttomap.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@ckeditor/ckeditor5-utils/src/objecttomap.js ***!
+  \*******************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.createConsumerApi = undefined;
-
-var _createConsumerApi = __webpack_require__(5);
-
-var _createConsumerApi2 = _interopRequireDefault(_createConsumerApi);
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = (0, _readFromConsumerApi2.default)('manifest');
-exports.createConsumerApi = _createConsumerApi2.default;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = objectToMap;\n/**\n * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.\n * For licensing, see LICENSE.md.\n */\n\n/**\n * @module utils/objecttomap\n */\n\n/**\n * Transforms object to map.\n *\n *\t\tconst map = objectToMap( { 'foo': 1, 'bar': 2 } );\n *\t\tmap.get( 'foo' ); // 1\n *\n * @param {Object} obj Object to transform.\n * @returns {Map} Map created from object.\n */\nfunction objectToMap(obj) {\n  var map = new Map();\n\n  for (var key in obj) {\n    map.set(key, obj[key]);\n  }\n\n  return map;\n}\n\n//# sourceURL=webpack:///./node_modules/@ckeditor/ckeditor5-utils/src/objecttomap.js?");
 
 /***/ }),
-/* 5 */
+
+/***/ "./node_modules/@ckeditor/ckeditor5-utils/src/tomap.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@ckeditor/ckeditor5-utils/src/tomap.js ***!
+  \*************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = createConsumerApi;
-
-var _package = __webpack_require__(6);
-
-var _manifest = __webpack_require__(7);
-
-var _manifest2 = _interopRequireDefault(_manifest);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var createReadOnlyValue = function createReadOnlyValue(value) {
-    return {
-        value: value,
-        writable: false,
-        enumerable: false,
-        configurable: true
-    };
-};
-
-function createConsumerApi(manifests, exposureMap) {
-    var api = {};
-
-    Object.keys(exposureMap).forEach(function (key) {
-        Object.defineProperty(api, key, createReadOnlyValue(exposureMap[key]));
-    });
-
-    Object.defineProperty(api, '@manifest', createReadOnlyValue((0, _manifest2.default)(manifests)));
-
-    Object.defineProperty(window, '@Neos:HostPluginAPI', createReadOnlyValue(api));
-    Object.defineProperty(window['@Neos:HostPluginAPI'], 'VERSION', createReadOnlyValue(_package.version));
-}
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = toMap;\n\nvar _isPlainObject = __webpack_require__(/*! ./lib/lodash/isPlainObject */ \"./node_modules/@ckeditor/ckeditor5-utils/src/lib/lodash/isPlainObject.js\");\n\nvar _isPlainObject2 = _interopRequireDefault(_isPlainObject);\n\nvar _objecttomap = __webpack_require__(/*! ./objecttomap */ \"./node_modules/@ckeditor/ckeditor5-utils/src/objecttomap.js\");\n\nvar _objecttomap2 = _interopRequireDefault(_objecttomap);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\n/**\n * Transforms object or iterable to map. Iterable needs to be in the format acceptable by the `Map` constructor.\n *\n *\t\tmap = toMap( { 'foo': 1, 'bar': 2 } );\n *\t\tmap = toMap( [ [ 'foo', 1 ], [ 'bar', 2 ] ] );\n *\t\tmap = toMap( anotherMap );\n *\n * @param {Object|Iterable} data Object or iterable to transform.\n * @returns {Map} Map created from data.\n */\n/**\n * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.\n * For licensing, see LICENSE.md.\n */\n\n/**\n * @module utils/tomap\n */\n\nfunction toMap(data) {\n  if ((0, _isPlainObject2.default)(data)) {\n    return (0, _objecttomap2.default)(data);\n  } else {\n    return new Map(data);\n  }\n}\n\n//# sourceURL=webpack:///./node_modules/@ckeditor/ckeditor5-utils/src/tomap.js?");
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports) {
 
-module.exports = {"name":"@neos-project/neos-ui-extensibility","version":"1.4.1","description":"Extensibility mechanisms for the Neos CMS UI","main":"./src/index.js","scripts":{"prebuild":"check-dependencies && yarn clean","test":"yarn jest -- -w 2 --coverage","test:watch":"yarn jest -- --watch","build":"exit 0","build:watch":"exit 0","clean":"rimraf ./lib ./dist","lint":"eslint src","jest":"NODE_ENV=test jest"},"devDependencies":{"@neos-project/babel-preset-neos-ui":"1.4.1","@neos-project/jest-preset-neos-ui":"1.4.1"},"dependencies":{"@neos-project/build-essentials":"1.4.1","@neos-project/positional-array-sorter":"1.4.1","babel-core":"^6.13.2","babel-eslint":"^7.1.1","babel-loader":"^7.1.2","babel-plugin-transform-decorators-legacy":"^1.3.4","babel-plugin-transform-object-rest-spread":"^6.20.1","babel-plugin-webpack-alias":"^2.1.1","babel-preset-es2015":"^6.13.2","babel-preset-react":"^6.3.13","babel-preset-stage-0":"^6.3.13","chalk":"^1.1.3","css-loader":"^0.28.4","file-loader":"^1.1.5","json-loader":"^0.5.4","postcss-loader":"^2.0.10","react-dev-utils":"^0.5.0","style-loader":"^0.21.0"},"bin":{"neos-react-scripts":"./bin/neos-react-scripts.js"},"jest":{"preset":"@neos-project/jest-preset-neos-ui"}}
-
-/***/ }),
-/* 7 */
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/createConsumerApi.js":
+/*!************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/createConsumerApi.js ***!
+  \************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-exports.default = function (manifests) {
-    return function (identifier, options, bootstrap) {
-        manifests.push(_defineProperty({}, identifier, {
-            options: options,
-            bootstrap: bootstrap
-        }));
-    };
-};
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.default = createConsumerApi;\n\nvar _manifest = __webpack_require__(/*! ./manifest */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/manifest.js\");\n\nvar _manifest2 = _interopRequireDefault(_manifest);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar createReadOnlyValue = function createReadOnlyValue(value) {\n    return {\n        value: value,\n        writable: false,\n        enumerable: false,\n        configurable: true\n    };\n};\nfunction createConsumerApi(manifests, exposureMap) {\n    var api = {};\n    Object.keys(exposureMap).forEach(function (key) {\n        Object.defineProperty(api, key, createReadOnlyValue(exposureMap[key]));\n    });\n    Object.defineProperty(api, '@manifest', createReadOnlyValue((0, _manifest2.default)(manifests)));\n    Object.defineProperty(window, '@Neos:HostPluginAPI', createReadOnlyValue(api));\n}\n//# sourceMappingURL=createConsumerApi.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/createConsumerApi.js?");
 
 /***/ }),
-/* 8 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/index.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/index.js ***!
+  \************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _tomap = __webpack_require__(9);
-
-var _tomap2 = _interopRequireDefault(_tomap);
-
-var _ckeditor5Exports = __webpack_require__(15);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var FOOTNOTE = 'footnote';
-
-function findFootnote(position, value) {
-    return new _ckeditor5Exports.ModelRange(_findBound(position, value, true), _findBound(position, value, false));
-}
-
-function _findBound(position, value, lookBack) {
-    var node = position.textNode || (lookBack ? position.nodeBefore : position.nodeAfter);
-
-    var lastNode = null;
-
-    while (node && node.getAttribute(FOOTNOTE) === value) {
-        lastNode = node;
-        node = lookBack ? node.previousSibling : node.nextSibling;
-    }
-
-    return lastNode ? _ckeditor5Exports.ModelPosition._createAt(lastNode, lookBack ? 'before' : 'after') : position;
-}
-
-var FootnoteCommand = function (_Command) {
-    _inherits(FootnoteCommand, _Command);
-
-    function FootnoteCommand(editor, attributeKey) {
-        _classCallCheck(this, FootnoteCommand);
-
-        var _this = _possibleConstructorReturn(this, (FootnoteCommand.__proto__ || Object.getPrototypeOf(FootnoteCommand)).call(this, editor));
-
-        _this.attributeKey = attributeKey;
-        return _this;
-    }
-
-    _createClass(FootnoteCommand, [{
-        key: 'refresh',
-        value: function refresh() {
-            var model = this.editor.model;
-            var doc = model.document;
-
-            this.value = doc.selection.getAttribute(this.attributeKey);
-            this.isEnabled = model.schema.checkAttributeInSelection(doc.selection, this.attributeKey);
-        }
-    }, {
-        key: 'execute',
-        value: function execute(value) {
-            var _this2 = this;
-
-            var model = this.editor.model;
-            var doc = model.document;
-            var selection = doc.selection;
-            var toggleMode = value === undefined;
-            value = toggleMode ? !this.value : value;
-
-            model.change(function (writer) {
-                if (toggleMode && !value) {
-                    var rangesToUnset = selection.isCollapsed ? [findFootnote(selection.getFirstPosition(), selection.getAttribute(FOOTNOTE))] : selection.getRanges();
-                    var _iteratorNormalCompletion = true;
-                    var _didIteratorError = false;
-                    var _iteratorError = undefined;
-
-                    try {
-                        for (var _iterator = rangesToUnset[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-                            var range = _step.value;
-
-                            writer.removeAttribute(_this2.attributeKey, range);
-                        }
-                    } catch (err) {
-                        _didIteratorError = true;
-                        _iteratorError = err;
-                    } finally {
-                        try {
-                            if (!_iteratorNormalCompletion && _iterator.return) {
-                                _iterator.return();
-                            }
-                        } finally {
-                            if (_didIteratorError) {
-                                throw _iteratorError;
-                            }
-                        }
-                    }
-                } else if (selection.isCollapsed) {
-                    var position = selection.getFirstPosition();
-
-                    if (selection.hasAttribute(FOOTNOTE)) {
-                        var footnoteRange = findFootnote(selection.getFirstPosition(), selection.getAttribute(FOOTNOTE));
-                        if (value === false) {
-                            writer.removeAttribute(_this2.attributeKey, footnoteRange);
-                        } else {
-                            writer.setAttribute(_this2.attributeKey, value, footnoteRange);
-                            writer.setSelection(footnoteRange);
-                        }
-                    } else if (value !== '') {
-                        var attributes = (0, _tomap2.default)(selection.getAttributes());
-                        attributes.set(_this2.attributeKey, value);
-                        var node = writer.createText(value, attributes);
-                        writer.insert(node, position);
-                        writer.setSelection(_ckeditor5Exports.ModelRange._createOn(node));
-                    }
-                } else {
-                    var ranges = model.schema.getValidRanges(selection.getRanges(), _this2.attributeKey);
-
-                    var _iteratorNormalCompletion2 = true;
-                    var _didIteratorError2 = false;
-                    var _iteratorError2 = undefined;
-
-                    try {
-                        for (var _iterator2 = ranges[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-                            var _range = _step2.value;
-
-                            if (value === false) {
-                                writer.removeAttribute(_this2.attributeKey, _range);
-                            } else {
-                                writer.setAttribute(_this2.attributeKey, value, _range);
-                            }
-                        }
-                    } catch (err) {
-                        _didIteratorError2 = true;
-                        _iteratorError2 = err;
-                    } finally {
-                        try {
-                            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                                _iterator2.return();
-                            }
-                        } finally {
-                            if (_didIteratorError2) {
-                                throw _iteratorError2;
-                            }
-                        }
-                    }
-                }
-            });
-        }
-    }]);
-
-    return FootnoteCommand;
-}(_ckeditor5Exports.Command);
-
-var Footnote = function (_Plugin) {
-    _inherits(Footnote, _Plugin);
-
-    function Footnote() {
-        _classCallCheck(this, Footnote);
-
-        return _possibleConstructorReturn(this, (Footnote.__proto__ || Object.getPrototypeOf(Footnote)).apply(this, arguments));
-    }
-
-    _createClass(Footnote, [{
-        key: 'init',
-        value: function init() {
-            var editor = this.editor;
-            editor.model.schema.extend('$text', { allowAttributes: FOOTNOTE });
-            editor.conversion.for('downcast').attributeToElement({
-                model: FOOTNOTE,
-                view: function view(footnote, writer) {
-                    return writer.createAttributeElement('span', { 'data-footnote': footnote });
-                }
-            });
-
-            editor.conversion.for('upcast').elementToAttribute({
-                view: {
-                    name: 'span',
-                    attributes: {
-                        'data-footnote': true
-                    }
-                },
-                model: {
-                    key: FOOTNOTE,
-                    value: function value(viewElement) {
-                        return viewElement.getAttribute('data-footnote');
-                    }
-                }
-            });
-            editor.commands.add(FOOTNOTE, new FootnoteCommand(this.editor, FOOTNOTE));
-        }
-    }], [{
-        key: 'pluginName',
-        get: function get() {
-            return 'Footnote';
-        }
-    }]);
-
-    return Footnote;
-}(_ckeditor5Exports.Plugin);
-
-exports.default = Footnote;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.SynchronousMetaRegistry = exports.SynchronousRegistry = exports.readFromConsumerApi = exports.createConsumerApi = undefined;\n\nvar _createConsumerApi = __webpack_require__(/*! ./createConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/createConsumerApi.js\");\n\nvar _createConsumerApi2 = _interopRequireDefault(_createConsumerApi);\n\nvar _readFromConsumerApi = __webpack_require__(/*! ./readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nvar _index = __webpack_require__(/*! ./registry/index */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/registry/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.default = (0, _readFromConsumerApi2.default)('manifest');\nexports.createConsumerApi = _createConsumerApi2.default;\nexports.readFromConsumerApi = _readFromConsumerApi2.default;\nexports.SynchronousRegistry = _index.SynchronousRegistry;\nexports.SynchronousMetaRegistry = _index.SynchronousMetaRegistry;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/index.js?");
 
 /***/ }),
-/* 9 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/manifest.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/manifest.js ***!
+  \***************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = toMap;
-
-var _isPlainObject = __webpack_require__(10);
-
-var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-var _objecttomap = __webpack_require__(14);
-
-var _objecttomap2 = _interopRequireDefault(_objecttomap);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Transforms object or iterable to map. Iterable needs to be in the format acceptable by the `Map` constructor.
- *
- *		map = toMap( { 'foo': 1, 'bar': 2 } );
- *		map = toMap( [ [ 'foo', 1 ], [ 'bar', 2 ] ] );
- *		map = toMap( anotherMap );
- *
- * @param {Object|Iterable} data Object or iterable to transform.
- * @returns {Map} Map created from data.
- */
-/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md.
- */
-
-/**
- * @module utils/tomap
- */
-
-function toMap(data) {
-  if ((0, _isPlainObject2.default)(data)) {
-    return (0, _objecttomap2.default)(data);
-  } else {
-    return new Map(data);
-  }
-}
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nexports.default = function (manifests) {\n    return function (identifier, options, bootstrap) {\n        manifests.push(_defineProperty({}, identifier, {\n            options: options,\n            bootstrap: bootstrap\n        }));\n    };\n};\n//# sourceMappingURL=manifest.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/manifest.js?");
 
 /***/ }),
-/* 10 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _getPrototype = __webpack_require__(11);
-
-var _getPrototype2 = _interopRequireDefault(_getPrototype);
-
-var _isHostObject = __webpack_require__(12);
-
-var _isHostObject2 = _interopRequireDefault(_isHostObject);
-
-var _isObjectLike = __webpack_require__(13);
-
-var _isObjectLike2 = _interopRequireDefault(_isObjectLike);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/** `Object#toString` result references. */
-var objectTag = '[object Object]';
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = Function.prototype.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Used to infer the `Object` constructor. */
-var objectCtorString = funcToString.call(Object);
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objectToString = objectProto.toString;
-
-/**
- * Checks if `value` is a plain object, that is, an object created by the
- * `Object` constructor or one with a `[[Prototype]]` of `null`.
- *
- * @static
- * @memberOf _
- * @since 0.8.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a plain object,
- *  else `false`.
- * @example
- *
- * function Foo() {
- *   this.a = 1;
- * }
- *
- * _.isPlainObject(new Foo);
- * // => false
- *
- * _.isPlainObject([1, 2, 3]);
- * // => false
- *
- * _.isPlainObject({ 'x': 0, 'y': 0 });
- * // => true
- *
- * _.isPlainObject(Object.create(null));
- * // => true
- */
-function isPlainObject(value) {
-  if (!(0, _isObjectLike2.default)(value) || objectToString.call(value) != objectTag || (0, _isHostObject2.default)(value)) {
-    return false;
-  }
-  var proto = (0, _getPrototype2.default)(value);
-  if (proto === null) {
-    return true;
-  }
-  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
-}
-
-exports.default = isPlainObject;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.default = readFromConsumerApi;\nfunction readFromConsumerApi(key) {\n    return function () {\n        if (window['@Neos:HostPluginAPI'] && window['@Neos:HostPluginAPI']['@' + key]) {\n            var _window$NeosHostPlu;\n\n            return (_window$NeosHostPlu = window['@Neos:HostPluginAPI'])['@' + key].apply(_window$NeosHostPlu, arguments);\n        }\n        throw new Error('You are trying to read from a consumer api that hasn\\'t been initialized yet!');\n    };\n}\n//# sourceMappingURL=readFromConsumerApi.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js?");
 
 /***/ }),
-/* 11 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/registry/AbstractRegistry.js":
+/*!********************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/registry/AbstractRegistry.js ***!
+  \********************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeGetPrototype = Object.getPrototypeOf;
-
-/**
- * Gets the `[[Prototype]]` of `value`.
- *
- * @private
- * @param {*} value The value to query.
- * @returns {null|Object} Returns the `[[Prototype]]`.
- */
-function getPrototype(value) {
-  return nativeGetPrototype(Object(value));
-}
-
-exports.default = getPrototype;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nvar AbstractRegistry = class AbstractRegistry {\n    constructor(description) {\n        this.SERIAL_VERSION_UID = 'd8a5aa78-978e-11e6-ae22-56b6b6499611';\n        this.description = description;\n    }\n};\n//# sourceMappingURL=AbstractRegistry.js.map\n\nexports.default = AbstractRegistry;\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/registry/AbstractRegistry.js?");
 
 /***/ }),
-/* 12 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousMetaRegistry.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousMetaRegistry.js ***!
+  \***************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-/**
- * Checks if `value` is a host object in IE < 9.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
- */
-function isHostObject(value) {
-  // Many host objects are `Object` objects that can coerce to strings
-  // despite having improperly defined `toString` methods.
-  var result = false;
-  if (value != null && typeof value.toString != 'function') {
-    try {
-      result = !!(value + '');
-    } catch (e) {}
-  }
-  return result;
-}
-
-exports.default = isHostObject;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.default = undefined;\n\nvar _SynchronousRegistry = __webpack_require__(/*! ./SynchronousRegistry */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousRegistry.js\");\n\nvar _SynchronousRegistry2 = _interopRequireDefault(_SynchronousRegistry);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar SynchronousMetaRegistry = class SynchronousMetaRegistry extends _SynchronousRegistry2.default {\n    set(key, value) {\n        if (value.SERIAL_VERSION_UID !== 'd8a5aa78-978e-11e6-ae22-56b6b6499611') {\n            throw new Error('You can only add registries to a meta registry');\n        }\n        return super.set(key, value);\n    }\n};\n//# sourceMappingURL=SynchronousMetaRegistry.js.map\n\nexports.default = SynchronousMetaRegistry;\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousMetaRegistry.js?");
 
 /***/ }),
-/* 13 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousRegistry.js":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousRegistry.js ***!
+  \***********************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/**
- * Checks if `value` is object-like. A value is object-like if it's not `null`
- * and has a `typeof` result of "object".
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
- * @example
- *
- * _.isObjectLike({});
- * // => true
- *
- * _.isObjectLike([1, 2, 3]);
- * // => true
- *
- * _.isObjectLike(_.noop);
- * // => false
- *
- * _.isObjectLike(null);
- * // => false
- */
-function isObjectLike(value) {
-  return !!value && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
-}
-
-exports.default = isObjectLike;
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.default = undefined;\n\nvar _AbstractRegistry = __webpack_require__(/*! ./AbstractRegistry */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/registry/AbstractRegistry.js\");\n\nvar _AbstractRegistry2 = _interopRequireDefault(_AbstractRegistry);\n\nvar _positionalArraySorter = __webpack_require__(/*! @neos-project/positional-array-sorter */ \"./node_modules/@neos-project/positional-array-sorter/dist/positionalArraySorter.js\");\n\nvar _positionalArraySorter2 = _interopRequireDefault(_positionalArraySorter);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar SynchronousRegistry = class SynchronousRegistry extends _AbstractRegistry2.default {\n    constructor(description) {\n        super(description);\n        this._registry = [];\n    }\n    set(key, value) {\n        var position = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;\n\n        if (typeof key !== 'string') {\n            throw new Error('Key must be a string');\n        }\n        if (typeof position !== 'string' && typeof position !== 'number') {\n            throw new Error('Position must be a string or a number');\n        }\n        var entry = { key: key, value: value };\n        if (position) {\n            entry.position = position;\n        }\n        var indexOfItemWithTheSameKey = this._registry.findIndex(function (item) {\n            return item.key === key;\n        });\n        if (indexOfItemWithTheSameKey === -1) {\n            this._registry.push(entry);\n        } else {\n            this._registry[indexOfItemWithTheSameKey] = entry;\n        }\n        return value;\n    }\n    get(key) {\n        if (typeof key !== 'string') {\n            console.error('Key must be a string');\n            return null;\n        }\n        var result = this._registry.find(function (item) {\n            return item.key === key;\n        });\n        return result ? result.value : null;\n    }\n    _getChildrenWrapped(searchKey) {\n        var unsortedChildren = this._registry.filter(function (item) {\n            return item.key.indexOf(searchKey + '/') === 0;\n        });\n        return (0, _positionalArraySorter2.default)(unsortedChildren);\n    }\n    getChildrenAsObject(searchKey) {\n        var result = {};\n        this._getChildrenWrapped(searchKey).forEach(function (item) {\n            result[item.key] = item.value;\n        });\n        return result;\n    }\n    getChildren(searchKey) {\n        return this._getChildrenWrapped(searchKey).map(function (item) {\n            return item.value;\n        });\n    }\n    has(key) {\n        if (typeof key !== 'string') {\n            console.error('Key must be a string');\n            return false;\n        }\n        return Boolean(this._registry.find(function (item) {\n            return item.key === key;\n        }));\n    }\n    _getAllWrapped() {\n        return (0, _positionalArraySorter2.default)(this._registry);\n    }\n    getAllAsObject() {\n        var result = {};\n        this._getAllWrapped().forEach(function (item) {\n            result[item.key] = item.value;\n        });\n        return result;\n    }\n    getAllAsList() {\n        return this._getAllWrapped().map(function (item) {\n            return Object.assign({ id: item.key }, item.value);\n        });\n    }\n};\n//# sourceMappingURL=SynchronousRegistry.js.map\n\nexports.default = SynchronousRegistry;\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousRegistry.js?");
 
 /***/ }),
-/* 14 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/registry/index.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/registry/index.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = objectToMap;
-/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md.
- */
-
-/**
- * @module utils/objecttomap
- */
-
-/**
- * Transforms object to map.
- *
- *		const map = objectToMap( { 'foo': 1, 'bar': 2 } );
- *		map.get( 'foo' ); // 1
- *
- * @param {Object} obj Object to transform.
- * @returns {Map} Map created from object.
- */
-function objectToMap(obj) {
-  var map = new Map();
-
-  for (var key in obj) {
-    map.set(key, obj[key]);
-  }
-
-  return map;
-}
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.SynchronousMetaRegistry = exports.SynchronousRegistry = undefined;\n\nvar _SynchronousRegistry = __webpack_require__(/*! ./SynchronousRegistry */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousRegistry.js\");\n\nvar _SynchronousRegistry2 = _interopRequireDefault(_SynchronousRegistry);\n\nvar _SynchronousMetaRegistry = __webpack_require__(/*! ./SynchronousMetaRegistry */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/registry/SynchronousMetaRegistry.js\");\n\nvar _SynchronousMetaRegistry2 = _interopRequireDefault(_SynchronousMetaRegistry);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nexports.SynchronousRegistry = _SynchronousRegistry2.default;\nexports.SynchronousMetaRegistry = _SynchronousMetaRegistry2.default;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/registry/index.js?");
 
 /***/ }),
-/* 15 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-ckeditor5-bindings/index.js":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-ckeditor5-bindings/index.js ***!
+  \*****************************************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('vendor')().CkEditor5;
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('NeosProjectPackages')().CkEditorApi;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-ckeditor5-bindings/index.js?");
 
 /***/ }),
-/* 16 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-decorators/index.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-decorators/index.js ***!
+  \*********************************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.default = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _dec, _dec2, _class, _class2, _temp2, _dec3, _class3, _class4, _temp3;
-
-var _react = __webpack_require__(17);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _propTypes = __webpack_require__(18);
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _reactRedux = __webpack_require__(19);
-
-var _plowJs = __webpack_require__(1);
-
-var _reactUiComponents = __webpack_require__(20);
-
-var _neosUiDecorators = __webpack_require__(21);
-
-var _neosUiCkeditor5Bindings = __webpack_require__(22);
-
-var _neosUiReduxStore = __webpack_require__(23);
-
-var _style = __webpack_require__(24);
-
-var _style2 = _interopRequireDefault(_style);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var FootnoteButton = (_dec = (0, _reactRedux.connect)((0, _plowJs.$transform)({
-    formattingUnderCursor: _neosUiReduxStore.selectors.UI.ContentCanvas.formattingUnderCursor
-})), _dec2 = (0, _neosUiDecorators.neos)(function (globalRegistry) {
-    return {
-        i18nRegistry: globalRegistry.get('i18n')
-    };
-}), _dec(_class = _dec2(_class = (_temp2 = _class2 = function (_PureComponent) {
-    _inherits(FootnoteButton, _PureComponent);
-
-    function FootnoteButton() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
-        _classCallCheck(this, FootnoteButton);
-
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = FootnoteButton.__proto__ || Object.getPrototypeOf(FootnoteButton)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-            isOpen: false
-        }, _this.handleFootnoteButtonClick = function () {
-            if (_this.isOpen()) {
-                if ((0, _plowJs.$get)('footnote', _this.props.formattingUnderCursor) !== undefined) {
-                    (0, _neosUiCkeditor5Bindings.executeCommand)('footnote');
-                }
-                _this.setState({ isOpen: false });
-            } else {
-                _this.setState({ isOpen: true });
-            }
-        }, _temp), _possibleConstructorReturn(_this, _ret);
-    }
-
-    _createClass(FootnoteButton, [{
-        key: 'componentWillReceiveProps',
-        value: function componentWillReceiveProps(nextProps) {
-            // if new selection doesn't have a footnote, close the footnote dialog
-            if (!(0, _plowJs.$get)('footnote', nextProps.formattingUnderCursor)) {
-                this.setState({ isOpen: false });
-            }
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            var _props = this.props,
-                i18nRegistry = _props.i18nRegistry,
-                formattingUnderCursor = _props.formattingUnderCursor,
-                inlineEditorOptions = _props.inlineEditorOptions;
-
-
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(_reactUiComponents.IconButton, {
-                    title: this.getFootnote() ? '' + i18nRegistry.translate('Psmb.Footnote:Main:removeFootnote', 'Remove footnote') : '' + i18nRegistry.translate('Psmb.Footnote:Main:insertFootnote', 'Insert footnote'),
-                    isActive: this.isOpen(),
-                    icon: this.getFootnote() ? 'ban' : 'asterisk',
-                    onClick: this.handleFootnoteButtonClick
-                }),
-                this.isOpen() ? _react2.default.createElement(FootnoteTextField, { footnoteValue: this.getFootnote(), formattingUnderCursor: formattingUnderCursor, inlineEditorOptions: inlineEditorOptions }) : null
-            );
-        }
-    }, {
-        key: 'isOpen',
-        value: function isOpen() {
-            return Boolean(this.state.isOpen || this.getFootnote());
-        }
-    }, {
-        key: 'getFootnote',
-        value: function getFootnote() {
-            return (0, _plowJs.$get)('footnote', this.props.formattingUnderCursor) || '';
-        }
-    }]);
-
-    return FootnoteButton;
-}(_react.PureComponent), _class2.propTypes = {
-    formattingUnderCursor: _propTypes2.default.objectOf(_propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.bool, _propTypes2.default.string, _propTypes2.default.object])),
-    inlineEditorOptions: _propTypes2.default.object,
-    i18nRegistry: _propTypes2.default.object.isRequired
-}, _temp2)) || _class) || _class);
-exports.default = FootnoteButton;
-var FootnoteTextField = (_dec3 = (0, _neosUiDecorators.neos)(function (globalRegistry) {
-    return {
-        i18nRegistry: globalRegistry.get('i18n')
-    };
-}), _dec3(_class3 = (_temp3 = _class4 = function (_PureComponent2) {
-    _inherits(FootnoteTextField, _PureComponent2);
-
-    function FootnoteTextField() {
-        _classCallCheck(this, FootnoteTextField);
-
-        return _possibleConstructorReturn(this, (FootnoteTextField.__proto__ || Object.getPrototypeOf(FootnoteTextField)).apply(this, arguments));
-    }
-
-    _createClass(FootnoteTextField, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: _style2.default.flyout },
-                _react2.default.createElement(_reactUiComponents.TextArea, {
-                    value: this.props.footnoteValue,
-                    autoFocus: true,
-                    placeholder: this.props.i18nRegistry.translate('Psmb.Footnote:Main:placeholder', 'Enter footnote text'),
-                    onChange: function onChange(value) {
-                        (0, _neosUiCkeditor5Bindings.executeCommand)('footnote', value, false);
-                    }
-                })
-            );
-        }
-    }]);
-
-    return FootnoteTextField;
-}(_react.PureComponent), _class4.propTypes = {
-    i18nRegistry: _propTypes2.default.object,
-    footnoteValue: _propTypes2.default.string,
-    inlineEditorOptions: _propTypes2.default.object
-}, _temp3)) || _class3);
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('NeosProjectPackages')().NeosUiDecorators;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-decorators/index.js?");
 
 /***/ }),
-/* 17 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-redux-store/index.js":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-redux-store/index.js ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('vendor')().React;
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('NeosProjectPackages')().NeosUiReduxStore;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-redux-store/index.js?");
 
 /***/ }),
-/* 18 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/react-ui-components/index.js":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/react-ui-components/index.js ***!
+  \**********************************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('vendor')().PropTypes;
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('NeosProjectPackages')().ReactUiComponents;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/react-ui-components/index.js?");
 
 /***/ }),
-/* 19 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/ckeditor5-exports/index.js":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/ckeditor5-exports/index.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('vendor')().reactRedux;
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('vendor')().CkEditor5;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/ckeditor5-exports/index.js?");
 
 /***/ }),
-/* 20 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/plow-js/index.js":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/plow-js/index.js ***!
+  \*********************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('NeosProjectPackages')().ReactUiComponents;
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('vendor')().plow;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/plow-js/index.js?");
 
 /***/ }),
-/* 21 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/prop-types/index.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/prop-types/index.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('NeosProjectPackages')().NeosUiDecorators;
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('vendor')().PropTypes;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/prop-types/index.js?");
 
 /***/ }),
-/* 22 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/react-redux/index.js":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/react-redux/index.js ***!
+  \*************************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('NeosProjectPackages')().CkEditorApi;
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('vendor')().reactRedux;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/react-redux/index.js?");
 
 /***/ }),
-/* 23 */
+
+/***/ "./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/react/index.js":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/react/index.js ***!
+  \*******************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-var _readFromConsumerApi = __webpack_require__(0);
-
-var _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-module.exports = (0, _readFromConsumerApi2.default)('NeosProjectPackages')().NeosUiReduxStore;
+eval("\n\nvar _readFromConsumerApi = __webpack_require__(/*! ../../../readFromConsumerApi */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/readFromConsumerApi.js\");\n\nvar _readFromConsumerApi2 = _interopRequireDefault(_readFromConsumerApi);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nmodule.exports = (0, _readFromConsumerApi2.default)('vendor')().React;\n//# sourceMappingURL=index.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/react/index.js?");
 
 /***/ }),
-/* 24 */
+
+/***/ "./node_modules/@neos-project/positional-array-sorter/dist/positionalArraySorter.js":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/@neos-project/positional-array-sorter/dist/positionalArraySorter.js ***!
+  \******************************************************************************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-
-var content = __webpack_require__(25);
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(27)(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {
-	module.hot.accept("!!../node_modules/css-loader/index.js??ref--7-2!../node_modules/postcss-loader/lib/index.js??ref--7-3!./style.css", function() {
-		var newContent = require("!!../node_modules/css-loader/index.js??ref--7-2!../node_modules/postcss-loader/lib/index.js??ref--7-3!./style.css");
-
-		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	});
-
-	module.hot.dispose(function() { update(); });
-}
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nvar positionalArraySorter = function positionalArraySorter(subject) {\n    var position = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'position';\n    var idKey = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'key';\n\n    var positionAccessor = typeof position === 'string' ? function (value) {\n        return value[position];\n    } : position;\n    var indexMapping = {};\n    var middleKeys = {};\n    var startKeys = {};\n    var endKeys = {};\n    var beforeKeys = {};\n    var afterKeys = {};\n    subject.forEach(function (item, index) {\n        var key = item[idKey] ? item[idKey] : String(index);\n        indexMapping[key] = index;\n        var positionValue = positionAccessor(item);\n        var position = String(positionValue ? positionValue : index);\n        var invalid = false;\n        if (position.startsWith('start')) {\n            var weightMatch = position.match(/start\\s+(\\d+)/);\n            var weight = weightMatch && weightMatch[1] ? Number(weightMatch[1]) : 0;\n            if (!startKeys[weight]) {\n                startKeys[weight] = [];\n            }\n            startKeys[weight].push(key);\n        } else if (position.startsWith('end')) {\n            var _weightMatch = position.match(/end\\s+(\\d+)/);\n            var _weight = _weightMatch && _weightMatch[1] ? Number(_weightMatch[1]) : 0;\n            if (!endKeys[_weight]) {\n                endKeys[_weight] = [];\n            }\n            endKeys[_weight].push(key);\n        } else if (position.startsWith('before')) {\n            var match = position.match(/before\\s+(\\S+)(\\s+(\\d+))?/);\n            if (!match) {\n                invalid = true;\n            } else {\n                var reference = match[1];\n                var _weight2 = match[3] ? Number(match[3]) : 0;\n                if (!beforeKeys[reference]) {\n                    beforeKeys[reference] = {};\n                }\n                if (!beforeKeys[reference][_weight2]) {\n                    beforeKeys[reference][_weight2] = [];\n                }\n                beforeKeys[reference][_weight2].push(key);\n            }\n        } else if (position.startsWith('after')) {\n            var _match = position.match(/after\\s+(\\S+)(\\s+(\\d+))?/);\n            if (!_match) {\n                invalid = true;\n            } else {\n                var _reference = _match[1];\n                var _weight3 = _match[3] ? Number(_match[3]) : 0;\n                if (!afterKeys[_reference]) {\n                    afterKeys[_reference] = {};\n                }\n                if (!afterKeys[_reference][_weight3]) {\n                    afterKeys[_reference][_weight3] = [];\n                }\n                afterKeys[_reference][_weight3].push(key);\n            }\n        } else {\n            invalid = true;\n        }\n        if (invalid) {\n            var numberPosition = parseFloat(position);\n            if (isNaN(numberPosition) || !isFinite(numberPosition)) {\n                numberPosition = index;\n            }\n            if (!middleKeys[numberPosition]) {\n                middleKeys[numberPosition] = [];\n            }\n            middleKeys[numberPosition].push(key);\n        }\n    });\n    var resultStart = [];\n    var resultMiddle = [];\n    var resultEnd = [];\n    var processedKeys = [];\n    var sortedWeights = function sortedWeights(dict, asc) {\n        var weights = Object.keys(dict).map(function (x) {\n            return Number(x);\n        }).sort(function (a, b) {\n            return a - b;\n        });\n        return asc ? weights : weights.reverse();\n    };\n    var addToResults = function addToResults(keys, result) {\n        keys.forEach(function (key) {\n            if (processedKeys.indexOf(key) >= 0) {\n                return;\n            }\n            processedKeys.push(key);\n            if (beforeKeys[key]) {\n                var beforeWeights = sortedWeights(beforeKeys[key], true);\n                var _iteratorNormalCompletion = true;\n                var _didIteratorError = false;\n                var _iteratorError = undefined;\n\n                try {\n                    for (var _iterator = beforeWeights[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {\n                        var i = _step.value;\n\n                        addToResults(beforeKeys[key][i], result);\n                    }\n                } catch (err) {\n                    _didIteratorError = true;\n                    _iteratorError = err;\n                } finally {\n                    try {\n                        if (!_iteratorNormalCompletion && _iterator.return) {\n                            _iterator.return();\n                        }\n                    } finally {\n                        if (_didIteratorError) {\n                            throw _iteratorError;\n                        }\n                    }\n                }\n            }\n            result.push(key);\n            if (afterKeys[key]) {\n                var afterWeights = sortedWeights(afterKeys[key], false);\n                var _iteratorNormalCompletion2 = true;\n                var _didIteratorError2 = false;\n                var _iteratorError2 = undefined;\n\n                try {\n                    for (var _iterator2 = afterWeights[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {\n                        var _i = _step2.value;\n\n                        addToResults(afterKeys[key][_i], result);\n                    }\n                } catch (err) {\n                    _didIteratorError2 = true;\n                    _iteratorError2 = err;\n                } finally {\n                    try {\n                        if (!_iteratorNormalCompletion2 && _iterator2.return) {\n                            _iterator2.return();\n                        }\n                    } finally {\n                        if (_didIteratorError2) {\n                            throw _iteratorError2;\n                        }\n                    }\n                }\n            }\n        });\n    };\n    var _iteratorNormalCompletion3 = true;\n    var _didIteratorError3 = false;\n    var _iteratorError3 = undefined;\n\n    try {\n        for (var _iterator3 = sortedWeights(startKeys, false)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {\n            var i = _step3.value;\n\n            addToResults(startKeys[i], resultStart);\n        }\n    } catch (err) {\n        _didIteratorError3 = true;\n        _iteratorError3 = err;\n    } finally {\n        try {\n            if (!_iteratorNormalCompletion3 && _iterator3.return) {\n                _iterator3.return();\n            }\n        } finally {\n            if (_didIteratorError3) {\n                throw _iteratorError3;\n            }\n        }\n    }\n\n    var _iteratorNormalCompletion4 = true;\n    var _didIteratorError4 = false;\n    var _iteratorError4 = undefined;\n\n    try {\n        for (var _iterator4 = sortedWeights(middleKeys, true)[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {\n            var _i2 = _step4.value;\n\n            addToResults(middleKeys[_i2], resultMiddle);\n        }\n    } catch (err) {\n        _didIteratorError4 = true;\n        _iteratorError4 = err;\n    } finally {\n        try {\n            if (!_iteratorNormalCompletion4 && _iterator4.return) {\n                _iterator4.return();\n            }\n        } finally {\n            if (_didIteratorError4) {\n                throw _iteratorError4;\n            }\n        }\n    }\n\n    var _iteratorNormalCompletion5 = true;\n    var _didIteratorError5 = false;\n    var _iteratorError5 = undefined;\n\n    try {\n        for (var _iterator5 = sortedWeights(endKeys, true)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {\n            var _i3 = _step5.value;\n\n            addToResults(endKeys[_i3], resultEnd);\n        }\n    } catch (err) {\n        _didIteratorError5 = true;\n        _iteratorError5 = err;\n    } finally {\n        try {\n            if (!_iteratorNormalCompletion5 && _iterator5.return) {\n                _iterator5.return();\n            }\n        } finally {\n            if (_didIteratorError5) {\n                throw _iteratorError5;\n            }\n        }\n    }\n\n    var _iteratorNormalCompletion6 = true;\n    var _didIteratorError6 = false;\n    var _iteratorError6 = undefined;\n\n    try {\n        for (var _iterator6 = Object.keys(beforeKeys)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {\n            var key = _step6.value;\n\n            if (processedKeys.indexOf(key) >= 0) {\n                continue;\n            }\n            var _iteratorNormalCompletion8 = true;\n            var _didIteratorError8 = false;\n            var _iteratorError8 = undefined;\n\n            try {\n                for (var _iterator8 = sortedWeights(beforeKeys[key], false)[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {\n                    var _i4 = _step8.value;\n\n                    addToResults(beforeKeys[key][_i4], resultStart);\n                }\n            } catch (err) {\n                _didIteratorError8 = true;\n                _iteratorError8 = err;\n            } finally {\n                try {\n                    if (!_iteratorNormalCompletion8 && _iterator8.return) {\n                        _iterator8.return();\n                    }\n                } finally {\n                    if (_didIteratorError8) {\n                        throw _iteratorError8;\n                    }\n                }\n            }\n        }\n    } catch (err) {\n        _didIteratorError6 = true;\n        _iteratorError6 = err;\n    } finally {\n        try {\n            if (!_iteratorNormalCompletion6 && _iterator6.return) {\n                _iterator6.return();\n            }\n        } finally {\n            if (_didIteratorError6) {\n                throw _iteratorError6;\n            }\n        }\n    }\n\n    var _iteratorNormalCompletion7 = true;\n    var _didIteratorError7 = false;\n    var _iteratorError7 = undefined;\n\n    try {\n        for (var _iterator7 = Object.keys(afterKeys)[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {\n            var _key = _step7.value;\n\n            if (processedKeys.indexOf(_key) >= 0) {\n                continue;\n            }\n            var _iteratorNormalCompletion9 = true;\n            var _didIteratorError9 = false;\n            var _iteratorError9 = undefined;\n\n            try {\n                for (var _iterator9 = sortedWeights(afterKeys[_key], false)[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {\n                    var _i5 = _step9.value;\n\n                    addToResults(afterKeys[_key][_i5], resultMiddle);\n                }\n            } catch (err) {\n                _didIteratorError9 = true;\n                _iteratorError9 = err;\n            } finally {\n                try {\n                    if (!_iteratorNormalCompletion9 && _iterator9.return) {\n                        _iterator9.return();\n                    }\n                } finally {\n                    if (_didIteratorError9) {\n                        throw _iteratorError9;\n                    }\n                }\n            }\n        }\n    } catch (err) {\n        _didIteratorError7 = true;\n        _iteratorError7 = err;\n    } finally {\n        try {\n            if (!_iteratorNormalCompletion7 && _iterator7.return) {\n                _iterator7.return();\n            }\n        } finally {\n            if (_didIteratorError7) {\n                throw _iteratorError7;\n            }\n        }\n    }\n\n    var sortedKeys = [].concat(resultStart, resultMiddle, resultEnd);\n    return sortedKeys.map(function (key) {\n        return indexMapping[key];\n    }).map(function (i) {\n        return subject[i];\n    });\n};\nexports.default = positionalArraySorter;\n//# sourceMappingURL=positionalArraySorter.js.map\n\n//# sourceURL=webpack:///./node_modules/@neos-project/positional-array-sorter/dist/positionalArraySorter.js?");
 
 /***/ }),
-/* 25 */
+
+/***/ "./src/FootnoteButton.js":
+/*!*******************************!*\
+  !*** ./src/FootnoteButton.js ***!
+  \*******************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(26)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".style__flyout___1vdkJ {\n    background-color: #222;\n    position: fixed;\n    z-index: 1;\n    width: 460px;\n    border: 8px solid #222;\n}\n", ""]);
-
-// exports
-exports.locals = {
-	"flyout": "style__flyout___1vdkJ"
-};
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.default = undefined;\n\nvar _dec, _dec2, _class, _class2, _temp2, _dec3, _class3, _class4, _temp3;\n\nvar _react = __webpack_require__(/*! react */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/react/index.js\");\n\nvar _react2 = _interopRequireDefault(_react);\n\nvar _propTypes = __webpack_require__(/*! prop-types */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/prop-types/index.js\");\n\nvar _propTypes2 = _interopRequireDefault(_propTypes);\n\nvar _reactRedux = __webpack_require__(/*! react-redux */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/react-redux/index.js\");\n\nvar _plowJs = __webpack_require__(/*! plow-js */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/plow-js/index.js\");\n\nvar _reactUiComponents = __webpack_require__(/*! @neos-project/react-ui-components */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/react-ui-components/index.js\");\n\nvar _neosUiDecorators = __webpack_require__(/*! @neos-project/neos-ui-decorators */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-decorators/index.js\");\n\nvar _neosUiCkeditor5Bindings = __webpack_require__(/*! @neos-project/neos-ui-ckeditor5-bindings */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-ckeditor5-bindings/index.js\");\n\nvar _neosUiReduxStore = __webpack_require__(/*! @neos-project/neos-ui-redux-store */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/neosProjectPackages/neos-ui-redux-store/index.js\");\n\nvar _style = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\nvar _style2 = _interopRequireDefault(_style);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar FootnoteButton = (_dec = (0, _reactRedux.connect)((0, _plowJs.$transform)({\n    formattingUnderCursor: _neosUiReduxStore.selectors.UI.ContentCanvas.formattingUnderCursor\n})), _dec2 = (0, _neosUiDecorators.neos)(function (globalRegistry) {\n    return {\n        i18nRegistry: globalRegistry.get('i18n')\n    };\n}), _dec(_class = _dec2(_class = (_temp2 = _class2 = class FootnoteButton extends _react.PureComponent {\n    constructor() {\n        var _temp, _this;\n\n        return _temp = _this = super(...arguments), this.state = {\n            isOpen: false\n        }, this.handleFootnoteButtonClick = function () {\n            if (_this.isOpen()) {\n                if ((0, _plowJs.$get)('footnote', _this.props.formattingUnderCursor) !== undefined) {\n                    (0, _neosUiCkeditor5Bindings.executeCommand)('footnote');\n                }\n                _this.setState({ isOpen: false });\n            } else {\n                _this.setState({ isOpen: true });\n            }\n        }, _temp;\n    }\n\n    componentWillReceiveProps(nextProps) {\n        // if new selection doesn't have a footnote, close the footnote dialog\n        if (!(0, _plowJs.$get)('footnote', nextProps.formattingUnderCursor)) {\n            this.setState({ isOpen: false });\n        }\n    }\n\n    render() {\n        var _props = this.props,\n            i18nRegistry = _props.i18nRegistry,\n            formattingUnderCursor = _props.formattingUnderCursor,\n            inlineEditorOptions = _props.inlineEditorOptions;\n\n\n        return _react2.default.createElement(\n            'div',\n            null,\n            _react2.default.createElement(_reactUiComponents.IconButton, {\n                title: this.getFootnote() ? '' + i18nRegistry.translate('Psmb.Footnote:Main:removeFootnote', 'Remove footnote') : '' + i18nRegistry.translate('Psmb.Footnote:Main:insertFootnote', 'Insert footnote'),\n                isActive: this.isOpen(),\n                icon: this.getFootnote() ? 'ban' : 'asterisk',\n                onClick: this.handleFootnoteButtonClick\n            }),\n            this.isOpen() ? _react2.default.createElement(FootnoteTextField, { footnoteValue: this.getFootnote(), formattingUnderCursor: formattingUnderCursor, inlineEditorOptions: inlineEditorOptions }) : null\n        );\n    }\n\n    isOpen() {\n        return Boolean(this.state.isOpen || this.getFootnote());\n    }\n\n    getFootnote() {\n        return (0, _plowJs.$get)('footnote', this.props.formattingUnderCursor) || '';\n    }\n}, _class2.propTypes = {\n    formattingUnderCursor: _propTypes2.default.objectOf(_propTypes2.default.oneOfType([_propTypes2.default.number, _propTypes2.default.bool, _propTypes2.default.string, _propTypes2.default.object])),\n    inlineEditorOptions: _propTypes2.default.object,\n    i18nRegistry: _propTypes2.default.object.isRequired\n}, _temp2)) || _class) || _class);\nexports.default = FootnoteButton;\nvar FootnoteTextField = (_dec3 = (0, _neosUiDecorators.neos)(function (globalRegistry) {\n    return {\n        i18nRegistry: globalRegistry.get('i18n')\n    };\n}), _dec3(_class3 = (_temp3 = _class4 = class FootnoteTextField extends _react.PureComponent {\n\n    render() {\n        return _react2.default.createElement(\n            'div',\n            { className: _style2.default.flyout },\n            _react2.default.createElement(_reactUiComponents.TextArea, {\n                value: this.props.footnoteValue,\n                autoFocus: true,\n                placeholder: this.props.i18nRegistry.translate('Psmb.Footnote:Main:placeholder', 'Enter footnote text'),\n                onChange: function onChange(value) {\n                    (0, _neosUiCkeditor5Bindings.executeCommand)('footnote', value, false);\n                }\n            })\n        );\n    }\n}, _class4.propTypes = {\n    i18nRegistry: _propTypes2.default.object,\n    footnoteValue: _propTypes2.default.string,\n    inlineEditorOptions: _propTypes2.default.object\n}, _temp3)) || _class3);\n\n//# sourceURL=webpack:///./src/FootnoteButton.js?");
 
 /***/ }),
-/* 26 */
-/***/ (function(module, exports) {
 
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 27 */
+/***/ "./src/footnotePlugin.js":
+/*!*******************************!*\
+  !*** ./src/footnotePlugin.js ***!
+  \*******************************/
+/*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
-};
-
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
-
-var getTarget = function (target) {
-  return document.querySelector(target);
-};
-
-var getElement = (function (fn) {
-	var memo = {};
-
-	return function(target) {
-                // If passing function in options, then use it for resolve "head" element.
-                // Useful for Shadow Root style i.e
-                // {
-                //   insertInto: function () { return document.querySelector("#foo").shadowRoot }
-                // }
-                if (typeof target === 'function') {
-                        return target();
-                }
-                if (typeof memo[target] === "undefined") {
-			var styleTarget = getTarget.call(this, target);
-			// Special case to return head of iframe instead of iframe itself
-			if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
-				try {
-					// This will throw an exception if access to iframe is blocked
-					// due to cross-origin restrictions
-					styleTarget = styleTarget.contentDocument.head;
-				} catch(e) {
-					styleTarget = null;
-				}
-			}
-			memo[target] = styleTarget;
-		}
-		return memo[target]
-	};
-})();
-
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(28);
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton && typeof options.singleton !== "boolean") options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-        if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
-};
-
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
-}
-
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
-}
-
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
-
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
-
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
-
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else if (typeof options.insertAt === "object" && options.insertAt.before) {
-		var nextSibling = getElement(options.insertInto + " " + options.insertAt.before);
-		target.insertBefore(style, nextSibling);
-	} else {
-		throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");
-	}
-}
-
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
-
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
-
-function createStyleElement (options) {
-	var style = document.createElement("style");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
-
-	return style;
-}
-
-function createLinkElement (options) {
-	var link = document.createElement("link");
-
-	if(options.attrs.type === undefined) {
-		options.attrs.type = "text/css";
-	}
-	options.attrs.rel = "stylesheet";
-
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
-
-	return link;
-}
-
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
-
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
-
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n    value: true\n});\nexports.default = undefined;\n\nvar _tomap = __webpack_require__(/*! @ckeditor/ckeditor5-utils/src/tomap */ \"./node_modules/@ckeditor/ckeditor5-utils/src/tomap.js\");\n\nvar _tomap2 = _interopRequireDefault(_tomap);\n\nvar _ckeditor5Exports = __webpack_require__(/*! ckeditor5-exports */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/ckeditor5-exports/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar FOOTNOTE = 'footnote';\n\nfunction findFootnote(position, value) {\n    return new _ckeditor5Exports.ModelRange(_findBound(position, value, true), _findBound(position, value, false));\n}\n\nfunction _findBound(position, value, lookBack) {\n    var node = position.textNode || (lookBack ? position.nodeBefore : position.nodeAfter);\n\n    var lastNode = null;\n\n    while (node && node.getAttribute(FOOTNOTE) === value) {\n        lastNode = node;\n        node = lookBack ? node.previousSibling : node.nextSibling;\n    }\n\n    return lastNode ? _ckeditor5Exports.ModelPosition._createAt(lastNode, lookBack ? 'before' : 'after') : position;\n}\n\nvar FootnoteCommand = class FootnoteCommand extends _ckeditor5Exports.Command {\n    constructor(editor, attributeKey) {\n        super(editor);\n\n        this.attributeKey = attributeKey;\n    }\n\n    refresh() {\n        var model = this.editor.model;\n        var doc = model.document;\n\n        this.value = doc.selection.getAttribute(this.attributeKey);\n        this.isEnabled = model.schema.checkAttributeInSelection(doc.selection, this.attributeKey);\n    }\n\n    execute(value) {\n        var _this = this;\n\n        var model = this.editor.model;\n        var doc = model.document;\n        var selection = doc.selection;\n        var toggleMode = value === undefined;\n        value = toggleMode ? !this.value : value;\n\n        model.change(function (writer) {\n            if (toggleMode && !value) {\n                var rangesToUnset = selection.isCollapsed ? [findFootnote(selection.getFirstPosition(), selection.getAttribute(FOOTNOTE))] : selection.getRanges();\n                var _iteratorNormalCompletion = true;\n                var _didIteratorError = false;\n                var _iteratorError = undefined;\n\n                try {\n                    for (var _iterator = rangesToUnset[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {\n                        var range = _step.value;\n\n                        writer.removeAttribute(_this.attributeKey, range);\n                    }\n                } catch (err) {\n                    _didIteratorError = true;\n                    _iteratorError = err;\n                } finally {\n                    try {\n                        if (!_iteratorNormalCompletion && _iterator.return) {\n                            _iterator.return();\n                        }\n                    } finally {\n                        if (_didIteratorError) {\n                            throw _iteratorError;\n                        }\n                    }\n                }\n            } else if (selection.isCollapsed) {\n                var position = selection.getFirstPosition();\n\n                if (selection.hasAttribute(FOOTNOTE)) {\n                    var footnoteRange = findFootnote(selection.getFirstPosition(), selection.getAttribute(FOOTNOTE));\n                    if (value === false) {\n                        writer.removeAttribute(_this.attributeKey, footnoteRange);\n                    } else {\n                        writer.setAttribute(_this.attributeKey, value, footnoteRange);\n                        writer.setSelection(footnoteRange);\n                    }\n                } else if (value !== '') {\n                    var attributes = (0, _tomap2.default)(selection.getAttributes());\n                    attributes.set(_this.attributeKey, value);\n                    var node = writer.createText(value, attributes);\n                    writer.insert(node, position);\n                    writer.setSelection(_ckeditor5Exports.ModelRange._createOn(node));\n                }\n            } else {\n                var ranges = model.schema.getValidRanges(selection.getRanges(), _this.attributeKey);\n\n                var _iteratorNormalCompletion2 = true;\n                var _didIteratorError2 = false;\n                var _iteratorError2 = undefined;\n\n                try {\n                    for (var _iterator2 = ranges[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {\n                        var _range = _step2.value;\n\n                        if (value === false) {\n                            writer.removeAttribute(_this.attributeKey, _range);\n                        } else {\n                            writer.setAttribute(_this.attributeKey, value, _range);\n                        }\n                    }\n                } catch (err) {\n                    _didIteratorError2 = true;\n                    _iteratorError2 = err;\n                } finally {\n                    try {\n                        if (!_iteratorNormalCompletion2 && _iterator2.return) {\n                            _iterator2.return();\n                        }\n                    } finally {\n                        if (_didIteratorError2) {\n                            throw _iteratorError2;\n                        }\n                    }\n                }\n            }\n        });\n    }\n};\nvar Footnote = class Footnote extends _ckeditor5Exports.Plugin {\n    static get pluginName() {\n        return 'Footnote';\n    }\n    init() {\n        var editor = this.editor;\n        editor.model.schema.extend('$text', { allowAttributes: FOOTNOTE });\n        editor.conversion.for('downcast').attributeToElement({\n            model: FOOTNOTE,\n            view: function view(footnote, writer) {\n                return writer.createAttributeElement('span', { 'data-footnote': footnote });\n            }\n        });\n\n        editor.conversion.for('upcast').elementToAttribute({\n            view: {\n                name: 'span',\n                attributes: {\n                    'data-footnote': true\n                }\n            },\n            model: {\n                key: FOOTNOTE,\n                value: function value(viewElement) {\n                    return viewElement.getAttribute('data-footnote');\n                }\n            }\n        });\n        editor.commands.add(FOOTNOTE, new FootnoteCommand(this.editor, FOOTNOTE));\n    }\n};\nexports.default = Footnote;\n\n//# sourceURL=webpack:///./src/footnotePlugin.js?");
 
 /***/ }),
-/* 28 */
-/***/ (function(module, exports) {
 
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
+"use strict";
+eval("\n\n__webpack_require__(/*! ./manifest */ \"./src/manifest.js\");\n\n//# sourceURL=webpack:///./src/index.js?");
 
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
+/***/ }),
 
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
+/***/ "./src/manifest.js":
+/*!*************************!*\
+  !*** ./src/manifest.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
+"use strict";
+eval("\n\nvar _neosUiExtensibility = __webpack_require__(/*! @neos-project/neos-ui-extensibility */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/index.js\");\n\nvar _neosUiExtensibility2 = _interopRequireDefault(_neosUiExtensibility);\n\nvar _footnotePlugin = __webpack_require__(/*! ./footnotePlugin */ \"./src/footnotePlugin.js\");\n\nvar _footnotePlugin2 = _interopRequireDefault(_footnotePlugin);\n\nvar _FootnoteButton = __webpack_require__(/*! ./FootnoteButton */ \"./src/FootnoteButton.js\");\n\nvar _FootnoteButton2 = _interopRequireDefault(_FootnoteButton);\n\nvar _plowJs = __webpack_require__(/*! plow-js */ \"./node_modules/@neos-project/neos-ui-extensibility/dist/shims/vendor/plow-js/index.js\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nvar addPlugin = function addPlugin(Plugin, isEnabled) {\n    return function (ckEditorConfiguration, options) {\n        if (!isEnabled || isEnabled(options.editorOptions, options)) {\n            ckEditorConfiguration.plugins = ckEditorConfiguration.plugins || [];\n            return (0, _plowJs.$add)('plugins', Plugin, ckEditorConfiguration);\n        }\n        return ckEditorConfiguration;\n    };\n};\n\n(0, _neosUiExtensibility2.default)('Psmb.Footnote:Footnote', {}, function (globalRegistry) {\n    var richtextToolbar = globalRegistry.get('ckEditor5').get('richtextToolbar');\n    richtextToolbar.set('footnote', {\n        component: _FootnoteButton2.default,\n        isVisible: (0, _plowJs.$get)('formatting.footnote')\n    }, 'before strong');\n\n    var config = globalRegistry.get('ckEditor5').get('config');\n    config.set('footnote', addPlugin(_footnotePlugin2.default));\n});\n\n//# sourceURL=webpack:///./src/manifest.js?");
 
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+/***/ }),
 
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
+/***/ "./src/style.css":
+/*!***********************!*\
+  !*** ./src/style.css ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
-
+eval("// extracted by mini-css-extract-plugin\nmodule.exports = {\"flyout\":\"style__flyout___1vdkJ\"};\n\n//# sourceURL=webpack:///./src/style.css?");
 
 /***/ })
-/******/ ]);
-//# sourceMappingURL=Plugin.js.map
+
+/******/ });
